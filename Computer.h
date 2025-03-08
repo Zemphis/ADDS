@@ -5,6 +5,7 @@
 
 class Computer : private Player {
  public:
+  Computer() {};
   Computer(std::string name = "Computer");
   char makeMove() override;
 };

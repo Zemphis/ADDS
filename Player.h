@@ -6,7 +6,6 @@
 
 class Player {
  protected:
-  char move;
   std::string name;
 
  public:
@@ -14,7 +13,7 @@ class Player {
   virtual ~Player();
 
   virtual char makeMove();
-  std::string getName();
+  virtual std::string getName();
 };
 
 #endif
