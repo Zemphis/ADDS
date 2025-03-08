@@ -7,6 +7,7 @@ class Human : private Player {
  public:
   Human(std::string name = "Human");
   char makeMove() override;
+  std::string getName() override;
 };
 
 #endif

@@ -6,3 +6,5 @@ char Human::makeMove() {
   std::cin >> move;
   return toupper(move);
 }
+
+std::string Human::getName() { return name; }
