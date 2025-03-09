@@ -3,11 +3,11 @@
 
 #include "Player.h"
 
-class Computer : private Player {
+class Computer : public Player {
  public:
-  Computer() {};
-  Computer(std::string name = "Computer");
+  Computer();
   char makeMove() override;
+  std::string getName() override;
 };
 
 #endif
