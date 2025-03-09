@@ -4,7 +4,7 @@ Referee::Referee() {}
 
 Referee::~Referee() {}
 
-Player* Referee::game(Player* player1, Player* player2) {
+Player* Referee::refGame(Player* player1, Player* player2) {
   char p1 = player1->makeMove();
   char p2 = player2->makeMove();
 

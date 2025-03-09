@@ -8,7 +8,7 @@ class Referee {
   Referee();
   ~Referee();
 
-  Player* game(Player* player1, Player* player2);
+  Player* refGame(Player* player1, Player* player2);
 };
 
 #endif
