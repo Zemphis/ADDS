@@ -10,8 +10,8 @@ class Human : public Player {
   std::string name;
 
  public:
-  Human(std::string playerName) : name(playerName) {}
-
+  Human(std::string name);
+  ~Human();
   Move* makeMove() override;
   std::string getName() const override;
 };

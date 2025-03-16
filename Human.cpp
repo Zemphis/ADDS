@@ -3,6 +3,7 @@
 #include <iostream>
 
 Human::Human(std::string name) : name(name) {}
+Human::~Human() {}
 
 Move* Human::makeMove() {
   std::string move;
