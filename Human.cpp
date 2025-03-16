@@ -8,7 +8,6 @@ Human::~Human() {}
 
 Move* Human::makeMove() {
   std::string move;
-  std::cout << "Enter move: ";
   std::cin >> move;
 
   if (move == "Rock") {
