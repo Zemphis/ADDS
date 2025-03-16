@@ -5,9 +5,9 @@
 
 class Pirate : public Move {
  public:
-  std::string getMove() override { return "Pirate"; }
+  std::string getName() override { return "Pirate"; }
   bool wins(Move* move2) override {
-    return move2->getMove() == "Monkey" || move2->getMove() == "Robot";
+    return move2->getName() == "Monkey" || move2->getName() == "Robot";
   }
 };
 

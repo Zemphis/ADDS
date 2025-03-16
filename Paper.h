@@ -5,8 +5,8 @@
 
 class Paper : public Move {
  public:
-  std::string getMove() override { return "Paper"; }
-  bool wins(Move* move2) override { return move2->getMove() == "Rock"; }
+  std::string getName() override { return "Paper"; }
+  bool wins(Move* move2) override { return move2->getName() == "Rock"; }
 };
 
 #endif

@@ -6,7 +6,7 @@
 class Move {
  public:
   virtual ~Move() = default;
-  virtual std::string getMove() = 0;
+  virtual std::string getName() = 0;
   virtual bool wins(Move* move2) = 0;
 };
 
