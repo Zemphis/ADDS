@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+Human::Human() : name("Human") {}
 Human::Human(std::string name) : name(name) {}
 Human::~Human() {}
 

@@ -10,6 +10,7 @@ class Human : public Player {
   std::string name;
 
  public:
+  Human();
   Human(std::string name);
   ~Human();
   Move* makeMove() override;
