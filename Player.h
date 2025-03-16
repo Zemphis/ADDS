@@ -17,8 +17,8 @@
 class Player {
  public:
   virtual Move* makeMove() = 0;
-  virtual std::string getName() = 0;
-  virtual Player();
+  virtual std::string getName() const = 0;
+  Player();
   virtual ~Player();
 };
 

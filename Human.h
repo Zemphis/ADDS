@@ -10,11 +10,10 @@ class Human : public Player {
   std::string name;
 
  public:
-  Human(std::string name = "Human");
   Human(std::string playerName) : name(playerName) {}
 
   Move* makeMove() override;
-  std::string getName() override;
+  std::string getName() const override;
 };
 
 #endif

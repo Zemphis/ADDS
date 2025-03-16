@@ -1,29 +1,23 @@
 #include <iostream>
 
+#include "Human.h"
 #include "Referee.h"
 
-Player* Referee::refGame(Player* player1, Player* player2) {
-  Move* p1Move = player1->makeMove();
-  Move* p2Move = player2->makeMove();
+int main() {
+  Player* player1 = new Human("a");
+  Player* player2 = new Human("b");
 
-  std::cout << player1->getName() << " played " << p1Move->getMove() << "\n";
-  std::cout << player2->getName() << " played " << p2Move->getMove() << "\n";
-
-  Player* winner = nullptr;
-
-  if (p1Move->getMove() == p2Move->getMove()) {
-    std::cout << "It's a tie!\n";
-  } else if (p1Move->wins(p2Move)) {
-    winner = player1;
-  } else {
-    winner = player2;
-  }
+  Referee referee;
+  Player* winner = referee.refGame(player1, player2);
 
   if (winner) {
-    std::cout << winner->getName() << " wins!\n";
+    std::cout << "Winner: " << winner->getName() << "\n";
+  } else {
+    std::cout << "Tie\n";
   }
 
-  delete p1Move;
-  delete p2Move;
-  return winner;
+  delete player1;
+  delete player2;
+
+  return 0;
 }
