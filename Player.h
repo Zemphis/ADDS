@@ -3,7 +3,6 @@
 
 #include <string>
 
-#include "Human.h"
 #include "Monkey.h"
 #include "Move.h"
 #include "Ninja.h"

@@ -11,7 +11,7 @@ int main() {
   Player* winner = referee.refGame(player1, player2);
 
   if (winner) {
-    std::cout << "Winner: " << winner->getName() << "\n";
+    std::cout << "Winner: " << winner->getName() << std::endl;
   } else {
     std::cout << "Tie\n";
   }
