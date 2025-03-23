@@ -1,9 +1,10 @@
+// Truckloads.h
 #ifndef TRUCKLOADS_H
 #define TRUCKLOADS_H
 
 class Truckloads {
  public:
-  int truckNum(int crateNum, int loadSize);
+  int numTrucks(int numCrates, int loadSize);
 };
 
 #endif

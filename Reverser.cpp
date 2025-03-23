@@ -13,22 +13,24 @@ int Reverser::reverseDigit(int value) {
   int lastDigit = value % 10;
   int remaining = value / 10;
 
-  int pow = 1;
-  while (remaining > 0) {
-    pow *= 10;
-    remaining /= 10;
+  int power = 1;
+  int temp = remaining;
+  while (temp > 0) {
+    power *= 10;
+    temp /= 10;
   }
 
-  return lastDigit * pow + reverseDigit(remaining);
+  return lastDigit * power + reverseDigit(remaining);
 }
 
-std::string Reverser::reverseString(const std::string& chars) {
-  if (chars.empty()) {
+std::string Reverser::reverseString(const std::string& characters) {
+  if (characters.empty()) {
     return "ERROR";
   }
-  if (chars.length() == 1) {
-    return chars;
+  if (characters.length() == 1) {
+    return characters;
   }
 
-  return chars.back() + reverseString(chars.substr(0, chars.length() - 1));
+  return characters.back() +
+         reverseString(characters.substr(0, characters.length() - 1));
 }

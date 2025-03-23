@@ -1,18 +1,18 @@
 #include "EfficientTruckloads.h"
 
-int EfficientTruckloads::numTrucks(int crateNum, int loadSize) {
-  if (crateNum <= loadSize) {
+int EfficientTruckloads::numTrucks(int numCrates, int loadSize) {
+  if (numCrates <= loadSize) {
     return 1;
   }
 
-  if (a.find(crateNum) != a.end()) {
-    return a[crateNum];
+  if (a.find(numCrates) != a.end()) {
+    return a[numCrates];
   }
 
-  int left = crateNum / 2;
-  int right = crateNum - left;
+  int left = numCrates / 2;
+  int right = numCrates - left;
 
   int result = numTrucks(left, loadSize) + numTrucks(right, loadSize);
-  a[crateNum] = result;
+  a[numCrates] = result;
   return result;
 }
