@@ -1,6 +1,7 @@
 #include "LinkedList.h"
 
 #include <iostream>
+#include <limits>
 
 LinkedList::LinkedList() : head(nullptr) {}
 
@@ -30,7 +31,10 @@ void LinkedList::insertPosition(int pos, int newNum) {
 
   Node* current = head;
   int index = 1;
-  while (current->getLink() != nullptr && index < pos - 1) {
+  while (current != nullptr && index < pos - 1) {
+    if (current->getLink() == nullptr) {
+      break;
+    }
     current = current->getLink();
     ++index;
   }
@@ -51,14 +55,17 @@ bool LinkedList::deletePosition(int pos) {
 
   Node* current = head;
   int index = 1;
-  while (current->getLink() != nullptr && index < pos - 1) {
+  while (current != nullptr && index < pos - 1) {
+    if (current->getLink() == nullptr) {
+      break;
+    }
     current = current->getLink();
     ++index;
   }
 
-  Node* target = current->getLink();
-  if (target == nullptr) return false;
+  if (current == nullptr || current->getLink() == nullptr) return false;
 
+  Node* target = current->getLink();
   current->setLink(target->getLink());
   delete target;
   return true;
@@ -90,7 +97,10 @@ int LinkedList::search(int target) {
 }
 
 void LinkedList::printList() {
-  if (!head) return;
+  if (!head) {
+    std::cout << "[]" << std::endl;
+    return;
+  }
 
   std::cout << "[";
   Node* current = head;
