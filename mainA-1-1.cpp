@@ -1,7 +1,10 @@
+#include <array>
 #include <iostream>
 #include <limits>
+#include <string>
 #include <vector>
 
+#include "BigNumCalc.h"
 #include "LinkedList.h"
 #include "Node.h"
 
