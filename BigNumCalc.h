@@ -4,15 +4,15 @@
 #include <list>
 #include <string>
 
-class bigNumCalc {
+class BigNumCalc {
  public:
-  bigNumCalc();
-  ~bigNumCalc();
+  BigNumCalc();
+  ~BigNumCalc();
 
-  std::list<int> buildBigNum(const std::string& numString);
-  std::list<int> add(const std::list<int>& num1, const std::list<int>& num2);
-  std::list<int> sub(const std::list<int>& num1, const std::list<int>& num2);
-  std::list<int> mul(const std::list<int>& num1, int singleDigit);
+  std::list<int> buildBigNum(std::string numString);
+  std::list<int> add(std::list<int> num1, std::list<int> num2);
+  std::list<int> sub(std::list<int> num1, std::list<int> num2);
+  std::list<int> mul(std::list<int> num1, std::list<int> num2);
 };
 
 #endif

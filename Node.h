@@ -7,10 +7,11 @@ class Node {
   Node* link;
 
  public:
-  Node(int val);
+  Node(int data);
   int getData() const;
+  void setData(int data);
   Node* getLink() const;
-  void setLink(Node* next);
+  void setLink(Node* link);
 };
 
 #endif

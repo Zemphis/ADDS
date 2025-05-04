@@ -61,6 +61,7 @@
         "xtree": "cpp",
         "xutility": "cpp",
         "sstream": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "optional": "cpp"
     }
 }
