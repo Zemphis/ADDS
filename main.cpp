@@ -1,32 +1,25 @@
 #include <iostream>
-#include <sstream>
 
-#include "EffectiveFibonacci.h"
-#include "Fibonacci.h"
-#include "Reverse.h"
+#include "Autocomplete.h"
+#include "PrefixMatcher.h"
 
 int main() {
-  std::string inputLine;
-  std::getline(std::cin, inputLine);
+  Autocomplete ac;
+  ac.insert("bin");
+  ac.insert("ball");
+  ac.insert("ballet");
 
-  std::stringstream ss(inputLine);
-  int i, n1, n2;
-  std::string s;
-
-  ss >> i >> s >> n1 >> n2;
-
-  Reverse rev;
-  Fibonacci fib;
-  EffectiveFibonacci effFib(std::max(n1, n2) + 1);
-
-  int reversedI = rev.reverseDigit(i);
-  if (reversedI != -1) {
-    std::cout << reversedI << " ";
+  vector<string> suggestions = ac.getSuggestions("bal");
+  for (string& s : suggestions) {
+    cout << s << endl;
   }
 
-  std::cout << rev.reverseString(s) << " ";
-  std::cout << fib.fibo(n1) << " ";
-  std::cout << effFib.fibo(n2) << std::endl;
+  PrefixMatcher pm;
+  pm.insert("1100110111", 1);
+  pm.insert("11001101", 2);
+  pm.insert("11001101", 3);
+
+  cout << "Router: " << pm.selectRouter("110011011001") << endl;
 
   return 0;
 }
