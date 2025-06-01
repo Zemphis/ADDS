@@ -39,37 +39,43 @@ int DocumentManager::search(std::string name) {
   }
   // std::cout << "Search failed for document '" << name << "'" << std::endl; //
   // Debug
-  return -1;  // Document not found
+  return 0;  // Document not found
 }
 
-bool DocumentManager::borrowDocument(int patronId, int documentId) {
+bool DocumentManager::borrowDocument(int documentId, int patronId) {
   // std::cout << "Attempting to borrow: Patron " << patronId << ", Document "
   // << documentId << std::endl; // Debug
 
+  if (patrons.find(patronId) == patrons.end()) {
+    // std::cout << "Borrow failed: Patron " << patronId << " not registered."
+    // << std::endl; // Debug
+    return 0;  // Patron not registered
+  }
   auto docIt = documents.find(documentId);
   if (docIt == documents.end()) {
     // std::cout << "Borrow failed: Document " << documentId << " not found." <<
     // std::endl; // Debug
-    return false;  // Document not found
+    return 0;  // Document not found
   }
   Document& doc = docIt->second;
   if (doc.currentPatrons.size() >= static_cast<size_t>(doc.licenseLimit)) {
     // std::cout << "Borrow failed: Document " << documentId << " license limit
     // reached." << std::endl; // Debug
-    return false;  // License limit reached
+    return 0;  // License limit reached
   }
+
   if (doc.currentPatrons.count(patronId)) {
     // std::cout << "Borrow failed: Patron " << patronId << " already borrowed
     // Document " << documentId << "." << std::endl; // Debug
-    return false;  // Patron already borrowed it
+    return 0;  // Patron already borrowed it
   }
   doc.currentPatrons.insert(patronId);
   // std::cout << "Borrow successful: Patron " << patronId << " borrowed
   // Document " << documentId << "." << std::endl; // Debug
-  return true;  // Document borrowed successfully
+  return 1;  // Document borrowed successfully
 }
 
-void DocumentManager::returnDocument(int patronId, int documentId) {
+void DocumentManager::returnDocument(int documentId, int patronId) {
   // std::cout << "Attempting to return: Patron " << patronId << ", Document "
   // << documentId << std::endl; // Debug
 
