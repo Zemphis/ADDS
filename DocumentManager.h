@@ -12,7 +12,7 @@ class Document {
   int id;
   int licenseLimit;
   std::unordered_set<int> currentPatrons;
-  Document() : name(""), id(-1), licenseLimit(0) {}
+  Document() = default;
   Document(std::string name, int id, int licenseLimit);
 };
 // DocumentManager class manages documents and their patrons
@@ -28,7 +28,7 @@ class DocumentManager {
  public:
   void addDocument(std::string name, int id, int licenseLimit);
   void addPatron(int patronId);
-  int search(std::string name);
+  int searchDocument(std::string name);
   bool borrowDocument(int patronId, int documentId);
   void returnDocument(int patronId, int documentId);
 };

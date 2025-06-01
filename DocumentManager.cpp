@@ -14,7 +14,7 @@ void DocumentManager::addDocument(std::string name, int id, int licenseLimit) {
 
 void DocumentManager::addPatron(int patronId) { patrons.insert(patronId); }
 
-int DocumentManager::search(std::string name) {
+int DocumentManager::searchDocument(std::string name) {
   auto it = nameToId.find(name);
   if (it != nameToId.end()) {
     return it->second;  // Return document ID
