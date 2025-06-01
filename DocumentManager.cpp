@@ -4,11 +4,11 @@ Document::Document(std::string name, int id, int licenseLimit)
     : name(name), id(id), licenseLimit(licenseLimit) {}
 
 void DocumentManager::addDocument(std::string name, int id, int licenseLimit) {
-  nameToId[name] = id;  // Map document name to ID
   if (documents.find(id) != documents.end()) {
     throw std::runtime_error(
         "Document with this ID already exists.");  // Ensure unique ID
   }
+  nameToId[name] = id;  // Map document name to ID
   documents[id] = Document(name, id, licenseLimit);
 }
 
@@ -24,15 +24,18 @@ int DocumentManager::search(std::string name) {
 
 bool DocumentManager::borrowDocument(int patronId, int documentId) {
   if (patrons.find(patronId) == patrons.end()) {
-    throw std::runtime_error("Patron not found.");
+    return false;  // Patron not registered
   }
   auto docIt = documents.find(documentId);
   if (docIt == documents.end()) {
-    throw std::runtime_error("Document not found.");
+    return false;  // Document not found
   }
   Document& doc = docIt->second;
   if (doc.currentPatrons.size() >= static_cast<size_t>(doc.licenseLimit)) {
     return false;  // License limit reached
+  }
+  if (doc.currentPatrons.count(patronId)) {
+    return false;  // Patron already borrowed it
   }
   doc.currentPatrons.insert(patronId);
   return true;  // Document borrowed successfully
