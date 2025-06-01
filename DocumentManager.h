@@ -12,7 +12,7 @@ class Document {
   int id;
   int licenseLimit;
   std::unordered_set<int> currentPatrons;
-  Document() = default;  // Default constructor;
+  Document();
   Document(std::string name, int id, int licenseLimit);
 };
 // DocumentManager class manages documents and their patrons
@@ -34,5 +34,3 @@ class DocumentManager {
 };
 
 #endif
-
-Document::Document() : Document("", 0, 0) {}  // Default constructor
