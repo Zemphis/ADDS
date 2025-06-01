@@ -1,6 +1,6 @@
 #include "DocumentManager.h"
 
-Document::Document() : Document("", 0, 0) {}
+Document::Document() : Document("", 0, -1) {}
 
 Document::Document(std::string name, int id, int licenseLimit)
     : name(name), id(id), licenseLimit(licenseLimit) {}
