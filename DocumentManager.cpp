@@ -46,11 +46,6 @@ bool DocumentManager::borrowDocument(int patronId, int documentId) {
   // std::cout << "Attempting to borrow: Patron " << patronId << ", Document "
   // << documentId << std::endl; // Debug
 
-  if (patrons.find(patronId) == patrons.end()) {
-    // std::cout << "Borrow failed: Patron " << patronId << " not registered."
-    // << std::endl; // Debug
-    return false;  // Patron not registered
-  }
   auto docIt = documents.find(documentId);
   if (docIt == documents.end()) {
     // std::cout << "Borrow failed: Document " << documentId << " not found." <<
