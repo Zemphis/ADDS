@@ -14,17 +14,10 @@ void DocumentManager::addDocument(std::string name, int id, int licenseLimit) {
 
 void DocumentManager::addPatron(int patronId) { patrons.insert(patronId); }
 
-int DocumentManager::searchDocument(std::string name) {
+int DocumentManager::search(std::string name) {
   auto it = nameToId.find(name);
   if (it != nameToId.end()) {
     return it->second;  // Return document ID
-  }
-  return -1;  // Document not found
-}
-
-int DocumentManager::searchDocumentById(int id) {
-  if (documents.find(id) != documents.end()) {
-    return id;  // Return document ID
   }
   return -1;  // Document not found
 }
@@ -38,7 +31,7 @@ bool DocumentManager::borrowDocument(int patronId, int documentId) {
     throw std::runtime_error("Document not found.");
   }
   Document& doc = docIt->second;
-  if (doc.currentPatrons.size() >= doc.licenseLimit) {
+  if (doc.currentPatrons.size() >= static_cast<size_t>(doc.licenseLimit)) {
     return false;  // License limit reached
   }
   doc.currentPatrons.insert(patronId);
