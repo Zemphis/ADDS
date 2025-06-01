@@ -26,6 +26,7 @@ class DocumentManager {
   std::unordered_set<int> patrons;  // Set of patron IDs
 
  public:
+  DocumentManager() = default;
   void addDocument(std::string name, int id, int licenseLimit);
   void addPatron(int patronId);
   int search(std::string name);
